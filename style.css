@@ -1,0 +1,6209 @@
+@font-face {
+    font-family: 'Geist';
+    src: url('./fonts/Geist-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'Audiowide';
+    src: url('fonts/Audiowide-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Geist';
+    src: url('./fonts/Geist-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Geist';
+    src: url('./fonts/Geist-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Geist';
+    src: url('./fonts/Geist-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Geist';
+    src: url('./fonts/Geist-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Geist';
+    src: url('./fonts/Geist-Black.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+}
+
+html{
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+}
+
+img{
+    max-width: 100%;
+}
+
+body{
+
+    background-color: #0F1012;
+    color: #E5E7EB;
+    font-family: 'Geist', sans-serif;
+}
+
+h1, h2, h3, h4, p, a{
+    font-family: 'Geist', sans-serif;
+    font-weight: 400;
+}
+
+h1{
+    font-size: 80px;
+    font-weight: 900;
+}
+
+h2{
+    font-size: 24px;
+    font-weight: 700;
+}
+
+h3{
+    font-size: 36px;
+    font-weight: 700;
+}
+
+h4{
+    font-size: 32px;
+    font-weight: 500;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.hero{
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 160px;
+}
+
+.hero img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+nav{
+    position:fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: min(1280px, calc(100% - 160px));
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 10;
+}
+
+nav a{
+    color: #A3A3A3;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.nav-buttons{
+    display: flex;
+    gap: 48px;
+}
+
+.nav-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    color:#A3A3A3;
+    text-decoration: none;
+}
+
+.nav-underline{
+    width: 100%;
+    height: 1px;
+    background-color: #A3A3A3;
+    border-radius: 999px;
+
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.2s ease;
+}
+
+.nav-item.active .nav-underline{
+    transform: scaleX(1);
+}
+
+.nav-item.active .nav-text{
+    color:#E5E7EB;
+    font-weight: 600; 
+}
+
+.nav-item:hover .nav-underline{
+    transform: scaleX(1);
+}
+
+.social-links{
+    display: flex;
+    gap: 48px;
+}
+
+.social-wrapper{
+    position: relative;
+}
+
+.social-default {
+    display: block;
+    z-index: 1;
+}
+
+.social-hover {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    opacity: 0;
+}
+
+.social-wrapper:hover .social-hover{
+    opacity: 1;
+}
+
+.hero-img{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.hero-content{
+    position: absolute;
+    z-index: 3;
+
+    width: fit-content;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+
+    
+}
+
+.hero-heading{
+    position: relative;
+}
+
+.hero-shadow{
+    position: relative;
+  
+
+    color: transparent;
+    text-shadow: 0px 10px 10px rgba(0, 0, 0, 0.4);
+
+    z-index: 1;
+}
+
+.hero-text{
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right, #FAFAFA 0%, #949494 100%);
+
+    background-clip: text;
+    color: transparent;
+    z-index: 2;
+}
+
+
+
+.tagline{
+    text-align: right;
+    font-size: 32px;
+    font-weight: 400;
+    opacity: 0.85;
+}
+
+.hero-name{
+    text-align: left;
+    font-size: 32px;
+    font-weight: 300;
+    opacity: 0.85;
+}
+
+.hero-overlay{
+    position: absolute;
+    inset: 0;
+    background-color: #0F1012;
+    opacity: 0.4; 
+    z-index: 2;
+}
+
+.topdown-gradient{
+    position: fixed;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 189px;
+    z-index: 9;
+    
+    background: linear-gradient(
+        to bottom,
+        #0F1012 0%,
+        rgba(15, 16, 18, 0) 100%
+    )
+}
+
+.bottomup-gradient{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 219px;
+    z-index: 9;
+    
+    background: linear-gradient(
+        to top,
+        #0F1012 0%,
+        rgba(15, 16, 18, 0) 100%
+    )
+}
+
+.selected-work{
+    margin-bottom: 160px;
+    scroll-margin-top: 140px;
+}
+
+.work-container{
+    position: relative;
+    width: min(960px, calc(100% - 48px));
+    margin: 0 auto;
+}
+
+.project-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.project-info{
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.project-image{
+    display: block;
+    width: 375px;
+    height: auto;
+}
+
+.project-tags{
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.tag{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.case-study-link{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.button-icon-wrapper{
+    position: relative;
+}
+
+.arrow-default{
+    display: block;
+    position: relative;
+    z-index: 1;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.arrow-hover{
+    position: absolute;
+    opacity: 0;
+    inset: 0;
+    z-index: 2;
+    transform: translateX(0);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.case-study-link:hover .arrow-default{
+    opacity: 0;
+    transform: translateX(6px);
+}
+
+.case-study-link:hover .arrow-hover{
+    opacity: 1;
+    transform: translateX(6px);
+}
+
+.projects-link{
+    display: flex;
+    width: fit-content;
+    margin: 0 auto;
+    transform: scale(1.2);
+}
+
+.button-text:hover{
+    color:#E5E7EB;
+}
+
+.button-text{
+    font-size: 16px;
+    font-weight: 500;
+    color: #A3A3A3;
+}
+
+.project-info h3,
+.project-info p {
+    margin: 0;
+}
+
+.project-info h3{
+    margin-bottom: 32px;
+}
+
+.project-info p{
+    margin-bottom: 24px;
+}
+
+.project-tags{
+    margin-bottom: 72px;
+}
+
+.work-container h2{
+    text-align: center;
+    margin: 0;
+}
+
+.work-container h2{
+    margin-bottom: 120px;
+}
+
+.project-image-2{
+    width: 482px;
+    height: auto;
+}
+
+.project-row{
+    margin-bottom: 240px;
+}
+
+.project-visual{
+    position: relative;
+}
+
+.project-glow{
+    position: absolute;
+    width: 502px;
+    height: 502px;
+    background: #D9D9D9;
+    opacity: 0.08;
+    border-radius: 50%;
+    filter: blur(120px);
+
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    
+    z-index: 1;
+ 
+}
+
+.project-image{
+    position: relative;
+    z-index: 1;
+}
+
+.about-fade{
+    pointer-events: none;
+    z-index: 2;
+}
+
+.about-container{
+    width: min(960px, calc(100% - 48px));
+    min-height: 100vh;
+    margin: 0 auto;
+    position: relative;
+    margin: 0 auto;
+    z-index: 3;
+}
+
+.about-text-container{
+    display: flex;
+    flex-direction: column;
+    gap: 72px;
+    position: absolute;
+    width: 448px;
+    height: auto;
+    text-align: center;
+    left: 0;
+    top: 55%;
+    transform: translateY(-50%);
+}
+
+.about-text{
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 28px;
+}
+
+.about-me h2{
+    text-align: center;
+    padding-top: 160px;
+}
+
+.about-me{
+    position: relative;
+    background-image: url("../images/about-image.png");
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    margin-bottom: 160px;
+}
+
+.about-fade{
+    position: absolute;
+    z-index: 2;
+}
+
+.about-overlay{
+    inset: 0;
+    background-color: #0F1012;
+    z-index: 1;
+    opacity: 0.5;
+}
+
+.about-fade-top{
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 235px;
+    background: linear-gradient(to bottom, #0F1012 0%, transparent 100%);
+}
+
+.about-fade-bottom{
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 235px;
+    background: linear-gradient(to top, #0F1012 0%, transparent 100%);
+}
+
+.about-fade-right{
+    right: 0;
+    top: 0;
+    width: 235px;
+    height: 100%;
+    background: linear-gradient(to left, #0F1012 0%, rgba(15, 16, 18, 0) 100%);
+}
+
+.about-fade-left{
+    left: 0;
+    top: 0;
+    width: 235px;
+    height: 100%;
+    background: linear-gradient(to right, #0F1012 0%, rgba(15, 16, 18, 0) 100%);
+}
+
+.contact-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.contact h4{
+    margin-bottom: 32px;
+}
+
+.contact-cta{
+    margin-bottom: 16px;
+}
+
+.email{
+    margin-bottom: 80px;
+}
+
+.get-in-touch{
+    transform: scale(1.2);
+    margin-bottom: 250px;
+}
+
+.contact-info{
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.project-viewer{
+    position: fixed;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    inset: 0;
+
+    background-color: rgba(255, 255, 255, 0.2);
+
+    z-index: 100;
+    padding: 40px;
+
+    overflow: hidden;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+.project-viewer.open{
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.viewer-topbar{
+    background-color: #0F1012;
+
+    height: 72px;
+    flex-shrink: 0;
+
+    width: min(1280px, calc(100% - 160px));
+    border-radius: 999px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 32px;
+    margin-bottom: 24px;
+}
+
+.viewer-topbar h2{
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.viewer-menu-button, .viewer-close-button{
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.viewer-menu-button img, .viewer-close-button img{
+    display: block;
+}
+
+.viewer-content{
+    height: calc(100vh - 40px - 40px - 72px - 24px);
+
+    width: min(1280px, calc(100% - 160px));
+
+    border-radius: 32px;
+    background-color: #0F1012;
+
+    padding: 80px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    flex-shrink: 0;
+}
+
+.viewer-project-grid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.viewer-project-card{
+    position: relative;
+
+    width: 100%;
+    height: 300px;
+
+    padding: 0;
+
+    overflow: hidden;
+
+    border: none;
+    border-radius: 24px;
+
+    background-color: #18191B;
+
+    cursor: pointer;
+    text-align: left;
+}
+
+.viewer-project-card p{
+    color: #A3A3A3;
+}
+
+.drawer-handle{
+    position: fixed;
+
+    left: max(112px, calc((100vw - 1280px) / 2 + 32px));
+    top: 50%;
+    transform: translateY(-50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    transition: transform 0.35s ease;
+
+    z-index: 120;
+}
+
+.drawer-line{
+    display: block;
+
+    height: 2px;
+    background-color: #A3A3A3;
+    border-radius: 999px;
+
+    transition:
+    width 0.35s ease,
+    background-color 0.25s ease;
+}
+.drawer-handle:hover .drawer-line{
+    width: 22px;
+    background-color: #FFFFFF;
+}
+.drawer-line-1{
+    width: 22px;
+}
+
+.drawer-line-2{
+    width: 15px;
+}
+
+.drawer-line-3{
+    width: 10px;
+}
+
+.project-drawer{
+    width: 100%;
+    height: 100%;
+
+    background-color: #0F1012;
+     border-radius: 32px;
+    padding: 32px;
+
+    transform: translateX(-100%);
+
+    transition: transform 0.35s ease;
+}
+
+.project-drawer.open{
+    transform: translateX(0);
+}
+
+.drawer-projects{
+    height: 100%;
+    width: calc(100% - 40px);
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    overflow-y: auto;
+
+    padding-right: 8px;
+}
+
+.drawer-projects{
+    scrollbar-width: thin;
+    scrollbar-color: #525252 transparent;
+
+}
+
+/* Chrome, Edge, Safari */
+.drawer-projects::-webkit-scrollbar{
+    width: 5px;
+}
+
+.drawer-projects::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+.drawer-projects::-webkit-scrollbar-thumb{
+    background-color: #525252;
+    border-radius: 999px;
+}
+
+.drawer-projects::-webkit-scrollbar-button{
+    display: none;
+}
+
+.drawer-project-card{
+    position: relative;
+
+    width: 100%;
+    height: 220px;
+
+    flex-shrink: 0;
+
+    padding: 0;
+
+    overflow: hidden;
+
+    border: none;
+    border-radius: 24px;
+
+    background-color: #18191B;
+
+    cursor: pointer;
+    text-align: left;
+}
+.drawer-card-image{
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 1;
+}
+.drawer-project-card::after{
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    z-index: 2;
+
+    background: linear-gradient(
+        to top,
+        rgba(15, 16, 18, 1) 0%,
+        rgba(15, 16, 18, 0.9) 20%,
+        rgba(15, 16, 18, 0.55) 40%,
+        rgba(15, 16, 18, 0) 70%
+    );
+
+    pointer-events: none;
+}
+
+
+/* TEXT */
+
+.drawer-card-info{
+    position: absolute;
+
+    left: 24px;
+    right: 24px;
+    bottom: 24px;
+
+    z-index: 3;
+}
+
+
+.drawer-card-info h3{
+    margin: 0 0 6px;
+
+    font-size: 18px;
+    font-weight: 500;
+
+    color: #E5E7EB;
+}
+
+
+.drawer-card-info p{
+    margin: 0;
+
+    font-size: 14px;
+    font-weight: 300;
+
+    color: #A3A3A3;
+}
+
+.drawer-project-card p{
+    color: #A3A3A3;
+}
+
+.drawer-window{
+    position: fixed;
+
+    top: 136px;
+    bottom: 40px;
+
+    left: max(
+        80px,
+        calc((100vw - 1280px) / 2)
+    );
+
+   width: 560px;
+
+    overflow: hidden;
+    border-radius: 32px;
+
+    z-index: 110;
+
+    pointer-events: none;
+}
+
+.drawer-window:has(.project-drawer.open){
+    pointer-events: auto;
+}
+
+.drawer-handle.open{
+    transform: translate(490px, -50%);
+}
+
+.drawer-handle.open .drawer-line{
+    width: 22px;
+    background-color: #FFFFFF;
+}
+
+/* =====================================================
+   LOOTRUSH — BASE
+===================================================== */
+
+.lootrush-case-study{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    color: #E5E7EB;
+}
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+.lootrush-section{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: 180px;
+}
+
+
+/* =====================================================
+   DEFAULT TYPOGRAPHY
+   Everything else = 14px / Light
+===================================================== */
+
+.lootrush-case-study p,
+.lootrush-case-study li,
+.lootrush-case-study span{
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   16PX / SEMIBOLD
+
+   Understanding The Problem
+   User Flows
+   Information Architecture
+   Wireframes
+   Low-Fi Prototype
+   Usability Testing
+   Design Iterations
+   High-Fi
+===================================================== */
+
+.lootrush-problem .lootrush-section-title,
+.lootrush-user-flows .lootrush-section-title,
+.lootrush-information-architecture .lootrush-section-title,
+.lootrush-wireframes .lootrush-section-title,
+.lootrush-lowfi .lootrush-section-title,
+.lootrush-usability .lootrush-section-title,
+.lootrush-iterations .lootrush-section-title,
+.lootrush-highfi .lootrush-section-title{
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3;
+
+    text-align: center;
+
+    color: #E5E7EB;
+}
+
+
+/* =====================================================
+   16PX / REGULAR
+
+   Research Methods
+   Secondary Research
+   Persona Development
+   User Journey Map
+   Competitive Audit
+   Key Findings
+   Design Opportunities
+===================================================== */
+
+.lootrush-research-methods .lootrush-section-title,
+.lootrush-secondary-research .lootrush-section-title,
+.lootrush-persona .lootrush-section-title,
+.lootrush-journey .lootrush-section-title,
+.lootrush-competitive-audit .lootrush-section-title,
+.lootrush-key-findings .lootrush-section-title,
+.lootrush-opportunities .lootrush-section-title,
+.lootrush-usability-findings .lootrush-section-title{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.3;
+
+    text-align: center;
+
+    color: #E5E7EB;
+}
+
+
+/* Design Process */
+
+.lootrush-small-heading{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.3;
+
+    text-align: center;
+
+    color: #E5E7EB;
+}
+
+
+/* Tasks */
+
+.lootrush-testing-tasks h3{
+    font-size: 16px;
+    font-weight: 400;
+
+    text-align: center;
+
+    color: #E5E7EB;
+}
+
+
+/* Core Experience */
+
+.lootrush-core-experience-title{
+    font-size: 16px;
+    font-weight: 400;
+
+    text-align: center;
+
+    color: #E5E7EB;
+}
+
+
+/* =====================================================
+   SECTION TEXT
+===================================================== */
+
+.lootrush-section-title{
+    margin-bottom: 72px;
+}
+
+
+.lootrush-section-intro,
+.lootrush-body-text,
+.lootrush-centered-text{
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+
+    color: #D4D4D4;
+}
+
+
+.lootrush-section-intro,
+.lootrush-centered-text{
+    max-width: 800px;
+    text-align: center;
+}
+
+
+.lootrush-section-intro{
+    margin-bottom: 56px;
+}
+
+
+/* =====================================================
+   FIGMA IMAGE EXPORTS
+
+   Natural 1x Figma size.
+   Only shrink if too large for container.
+===================================================== */
+
+.lootrush-case-study img{
+    display: block;
+
+    width: auto;
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* Center assets WITHOUT stretching */
+
+.lootrush-hero-image,
+.lootrush-overview-image,
+.lootrush-secondary-research-image,
+.lootrush-persona-image,
+.lootrush-journey-image,
+.lootrush-audit-image,
+.lootrush-flow-image,
+.lootrush-ia-image,
+.lootrush-wireframes-image,
+.lootrush-lowfi-image,
+.lootrush-iteration-image,
+.lootrush-highfi-hero,
+.lootrush-highfi-image,
+.lootrush-final-image{
+    display: flex;
+    justify-content: center;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.lootrush-hero{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: 180px;
+}
+
+
+.lootrush-hero-text{
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 72px;
+}
+
+
+.lootrush-subtitle{
+    max-width: 600px;
+
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+
+    text-align: center;
+
+    color: #E5E7EB;
+}
+
+
+.lootrush-hero-image{
+    width: 100%;
+    margin-bottom: 72px;
+}
+
+
+/* =====================================================
+   ROLE / DURATION / PLATFORM
+===================================================== */
+
+.lootrush-project-details{
+    width: fit-content;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    gap: 130px;
+
+    margin: 0 auto 72px;
+}
+
+.lootrush-detail{
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.lootrush-detail-label{
+    font-size: 14px;
+    font-weight: 300;
+
+    color: #D4D4D4;
+}
+
+
+.lootrush-detail-value{
+    position: relative;
+
+    padding-left: 22px;
+
+    font-size: 16px;
+    font-weight: 400;
+
+    color: #E5E7EB;
+}
+
+
+/* =====================================================
+   SHARED FULL ARROW
+
+   IMPORTANT:
+   Uses YOUR existing arrow-hover.svg.
+   No CSS triangle.
+   No mask.
+   No recreated arrow.
+===================================================== */
+
+.lootrush-detail-value::before,
+.lootrush-method-card h3::before,
+.lootrush-persona-details span::before,
+.lootrush-persona-block h3::before,
+.lootrush-finding h3::before,
+.lootrush-opportunity h3::before,
+.lootrush-testing-details span::before,
+.lootrush-test-finding h3::before{
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 50%;
+
+    width: 14px;
+    height: 10px;
+
+    transform: translateY(calc(-50% - 1px));
+
+    background-image: url("icons/arrow-hover.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+
+/* =====================================================
+   DESIGN PROCESS
+===================================================== */
+
+.lootrush-process{
+    width: 80%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 28px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.lootrush-process-list{
+    width: fit-content;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 40px;
+
+    margin: 0 auto;
+}
+
+
+.lootrush-process-list span{
+    position: relative;
+
+    font-size: 14px;
+    font-weight: 300;
+
+    color: #D4D4D4;
+}
+
+
+/* Full arrow-hover.svg between process steps */
+
+.lootrush-process-list span:not(:last-child)::after{
+    content: "";
+
+    position: absolute;
+
+    right: -24px;
+    top: 50%;
+
+    width: 14px;
+    height: 10px;
+
+    transform: translateY(calc(-50% - 0px));
+
+    background-image: url("icons/arrow-hover.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+
+/* =====================================================
+   OVERVIEW
+===================================================== */
+
+.lootrush-overview-content{
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    gap: 40px;
+
+    padding: 0;
+}
+
+
+/* LEFT SIDE */
+
+.lootrush-overview-image{
+    width: 48%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lootrush-overview-image img{
+    position: static;
+
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+
+    transform: scale(1.8);
+    transform-origin: center;
+}
+
+
+/* RIGHT SIDE */
+
+.lootrush-overview-text{
+    width: 430px;
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 32px;
+
+    text-align: center;
+}
+
+
+.lootrush-overview-text .lootrush-body-text{
+    width: 100%;
+
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+
+    color: #E5E7EB;
+}
+
+
+/* =====================================================
+   UNDERSTANDING THE PROBLEM
+===================================================== */
+
+.lootrush-problem .lootrush-centered-text{
+    max-width: 900px;
+}
+
+
+/* =====================================================
+   RESEARCH METHODS
+===================================================== */
+
+.lootrush-methods{
+    width: 65%;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 72px 120px;
+}
+
+
+.lootrush-method-card{
+    min-height: 190px;
+
+    padding: 28px;
+
+    border: 1px solid #A3A3A3;
+    border-radius: 24px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+
+.lootrush-method-card h3{
+    position: relative;
+
+    padding-left: 22px;
+
+    font-size: 16px;
+    font-weight: 400;
+
+    color: #E5E7EB;
+}
+
+
+.lootrush-method-card p{
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+
+    color: #D4D4D4;
+}
+
+
+/* =====================================================
+   EXPORTED FIGMA BLOCKS
+===================================================== */
+
+.lootrush-secondary-research-image,
+.lootrush-journey-image,
+.lootrush-audit-image,
+.lootrush-flow-image,
+.lootrush-ia-image,
+.lootrush-wireframes-image{
+    max-width: 100%;
+}
+
+
+/* =====================================================
+   PERSONA
+===================================================== */
+
+.lootrush-persona-top{
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 80px;
+
+    margin-bottom: 72px;
+}
+
+
+.lootrush-persona-image{
+    flex-shrink: 0;
+}
+
+
+.lootrush-persona-details{
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+
+.lootrush-persona-details span{
+    position: relative;
+
+    padding-left: 22px;
+
+    font-size: 16px;
+    font-weight: 400;
+
+    color: #E5E7EB;
+}
+
+
+.lootrush-persona-info{
+    width: 75%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 52px;
+}
+
+
+.lootrush-persona-block{
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+
+.lootrush-persona-block h3{
+    position: relative;
+
+    padding-left: 22px;
+
+    font-size: 16px;
+    font-weight: 400;
+
+    color: #E5E7EB;
+}
+
+
+.lootrush-persona-block p,
+.lootrush-persona-block li{
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+
+    color: #D4D4D4;
+}
+
+
+.lootrush-persona-block ul{
+    padding-left: 18px;
+}
+
+
+/* =====================================================
+   COMPETITIVE AUDIT
+===================================================== */
+
+.lootrush-competitive-audit .lootrush-section-intro{
+    max-width: 850px;
+}
+
+
+.lootrush-competitive-audit .lootrush-audit-image{
+    margin-bottom: 80px;
+}
+
+
+/* =====================================================
+   KEY FINDINGS / DESIGN OPPORTUNITIES
+===================================================== */
+
+.lootrush-findings-list,
+.lootrush-opportunities-list{
+    width: 60%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 42px;
+}
+
+
+.lootrush-finding,
+.lootrush-opportunity{
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+
+.lootrush-finding h3,
+.lootrush-opportunity h3{
+    position: relative;
+
+    padding-left: 22px;
+
+    font-size: 16px;
+    font-weight: 400;
+
+    color: #E5E7EB;
+}
+
+
+.lootrush-finding p,
+.lootrush-opportunity p{
+    padding-left: 22px;
+
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+
+    color: #D4D4D4;
+}
+
+
+/* =====================================================
+   USABILITY TESTING
+===================================================== */
+
+.lootrush-testing-details{
+    width: 65%;
+
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 64px;
+}
+
+
+.lootrush-testing-details span{
+    position: relative;
+
+    padding-left: 22px;
+
+    font-size: 16px;
+    font-weight: 400;
+
+    color: #E5E7EB;
+}
+
+
+.lootrush-testing-tasks{
+    width: fit-content;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 24px;
+}
+
+
+.lootrush-testing-tasks ol{
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.lootrush-testing-tasks li{
+    font-size: 14px;
+    font-weight: 300;
+
+    color: #D4D4D4;
+}
+
+
+/* =====================================================
+   USABILITY KEY FINDINGS
+===================================================== */
+
+.lootrush-usability-findings{
+    gap: 64px;
+}
+
+
+.lootrush-test-finding{
+    width: 70%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 20px;
+
+    text-align: center;
+}
+
+
+.lootrush-test-finding h3{
+    position: relative;
+
+    padding-left: 22px;
+
+    font-size: 16px;
+    font-weight: 400;
+
+    color: #E5E7EB;
+}
+
+
+.lootrush-test-finding p,
+.lootrush-test-finding blockquote{
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+
+    color: #D4D4D4;
+}
+
+
+.lootrush-design-response{
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.lootrush-design-response span{
+    font-size: 16px;
+    font-weight: 400;
+
+    color: #E5E7EB;
+}
+
+
+/* =====================================================
+   DESIGN ITERATIONS
+
+   Your exported image contains the whole block.
+===================================================== */
+
+.lootrush-iterations .lootrush-iteration:first-of-type{
+    max-width: 100%;
+}
+
+
+.lootrush-iterations .lootrush-iteration:first-of-type > span{
+    display: none;
+}
+
+
+.lootrush-iterations .lootrush-iteration-image{
+    display: flex;
+    justify-content: center;
+}
+
+
+.lootrush-iterations .lootrush-iteration:nth-of-type(2),
+.lootrush-iterations .lootrush-iteration:nth-of-type(3){
+    display: none;
+}
+
+
+/* =====================================================
+   HIGH-FI
+===================================================== */
+
+.lootrush-highfi{
+    width: 100%;
+}
+
+
+.lootrush-highfi-hero{
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 160px;
+}
+
+
+.lootrush-highfi-hero img{
+    width: auto;
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* Every explanatory mockup block */
+
+.lootrush-highfi-feature{
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 80px;
+
+    padding: 0 60px;
+    box-sizing: border-box;
+
+    margin-bottom: 160px;
+}
+
+
+.lootrush-highfi-image{
+    display: flex;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+
+.lootrush-highfi-image img{
+    width: auto;
+    max-width: 100%;
+    height: auto;
+}
+
+
+.lootrush-highfi-feature p{
+    width: 360px;
+
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+
+    text-align: center;
+
+    color: #E5E7EB;
+}
+
+
+
+/* =====================================================
+   HIGH-FI FEATURES
+===================================================== */
+
+.lootrush-highfi-feature{ 
+    width: 100%; 
+ 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+ 
+    gap: 80px;
+
+    padding: 0 90px;
+    box-sizing: border-box;
+ 
+    margin-bottom: 160px; 
+}
+
+
+/* Image side */
+
+.lootrush-highfi-image{
+    flex: 1 1 auto;
+    min-width: 0;
+
+    display: flex;
+    justify-content: center;
+}
+
+
+/*
+   Keep the natural Figma size when possible,
+   but allow it to shrink if the row needs space.
+*/
+
+.lootrush-highfi-image img{
+    display: block;
+
+    width: auto;
+    max-width: 140%;
+    height: auto;
+}
+
+
+/* Text side */
+
+.lootrush-highfi-feature p{
+    flex: 0 0 360px;
+
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+
+    text-align: center;
+
+    color: #E5E7EB;
+}
+
+
+/* =====================================================
+   BUDGET FILTERING
+   Image left / text right
+===================================================== */
+
+.lootrush-highfi-budget{
+    flex-direction: row;
+}
+
+
+/* =====================================================
+   COMPARISON
+   Text left / image right
+===================================================== */
+
+.lootrush-highfi-comparison{
+    flex-direction: row;
+}
+
+
+/* =====================================================
+   SPEC EXPLANATIONS
+   Image left / text right
+===================================================== */
+
+.lootrush-highfi-specs{
+    flex-direction: row;
+}
+
+/* =====================================================
+   FINAL VISUAL
+   Comes BEFORE Reflection
+===================================================== */
+
+.lootrush-final-visual{
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 180px;
+}
+
+
+.lootrush-final-image{
+    display: flex;
+    justify-content: center;
+}
+
+
+.lootrush-final-image img{
+    width: auto;
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* =====================================================
+   REFLECTION
+   FINAL SECTION OF CASE STUDY
+===================================================== */
+
+.lootrush-reflection{
+    margin-bottom: 0;
+}
+
+
+.lootrush-reflection-text{
+    width: 85%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 32px;
+}
+
+
+.lootrush-reflection-text p{
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+
+    text-align: center;
+
+    color: #D4D4D4;
+}
+
+/* =====================================================
+   IMAGE EDGE FADES
+   Hero + High-Fi Hero
+===================================================== */
+
+.lootrush-hero-image,
+.lootrush-highfi-hero{
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* TOP + BOTTOM FADE */
+
+.lootrush-hero-image::before,
+.lootrush-highfi-hero::before{
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #0F1012 0%,
+            transparent 12%,
+            transparent 88%,
+            #0F1012 100%
+        );
+}
+
+
+/* LEFT + RIGHT FADE */
+
+.lootrush-hero-image::after,
+.lootrush-highfi-hero::after{
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            to right,
+            #0F1012 0%,
+            transparent 12%,
+            transparent 88%,
+            #0F1012 100%
+        );
+}
+
+.viewer-content{
+    scrollbar-width: thin;
+    scrollbar-color: #525252 transparent;
+}
+
+.viewer-content::-webkit-scrollbar{
+    width: 5px;
+}
+
+.viewer-content::-webkit-scrollbar-track{
+    background: transparent;
+
+    border-top: 24px solid transparent;
+    border-bottom: 24px solid transparent;
+
+    background-clip: padding-box;
+}
+
+.viewer-content::-webkit-scrollbar-thumb{
+    background-color: #525252;
+    border-radius: 999px;
+}
+
+.viewer-content::-webkit-scrollbar-button{
+    display: none;
+    width: 0;
+    height: 0;
+}
+.viewer-content{
+    height: calc(100vh - 80px - 80px - 72px - 24px);
+    width: min(1280px, calc(100% - 160px));
+
+    border-radius: 32px;
+    background-color: #0F1012;
+
+    padding: 80px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    flex-shrink: 0;
+}
+
+
+/* IMAGE */
+
+.viewer-card-image{
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 1;
+}
+
+
+/* TEXT */
+
+.viewer-card-info{
+    position: absolute;
+
+    left: 24px;
+    right: 24px;
+    bottom: 24px;
+
+    z-index: 3;
+}
+
+
+.viewer-card-info h3{
+    margin-bottom: 6px;
+
+    font-size: 18px;
+    font-weight: 500;
+
+    color: #E5E7EB;
+}
+
+
+.viewer-card-info p{
+    font-size: 14px;
+    font-weight: 300;
+
+    color: #A3A3A3;
+}
+
+
+.viewer-project-card::after{
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    background: linear-gradient(
+        to top,
+        rgba(15, 16, 18, 1) 0%,
+        rgba(15, 16, 18, 0.9) 20%,
+        rgba(15, 16, 18, 0.55) 40%,
+        rgba(15, 16, 18, 0) 70%
+    );
+
+    pointer-events: none;
+}
+
+.viewer-menu-icon-wrapper{
+    position: relative;
+
+    width: 24px;
+    height: 24px;
+}
+
+
+.viewer-menu-default,
+.viewer-menu-hover{
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    transition: opacity 0.3s ease;
+}
+
+
+.viewer-menu-default{
+    opacity: 1;
+}
+
+
+.viewer-menu-hover{
+    opacity: 0;
+}
+
+
+.viewer-menu-button:hover .viewer-menu-default{
+    opacity: 0;
+}
+
+
+.viewer-menu-button:hover .viewer-menu-hover{
+    opacity: 1;
+}
+
+.viewer-content-enter{
+    animation: viewerContentEnter 0.6s ease-out forwards;
+}
+
+@keyframes viewerContentEnter{
+    from{
+        opacity: 0;
+        filter: blur(4px);
+    }
+
+    to{
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+/* =========================================
+   LOOTRUSH - VISUAL DESIGN
+========================================= */
+
+.lootrush-visual-design{
+    display: flex;
+    flex-direction: column;
+}
+
+.lootrush-visual-block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 120px;
+}
+
+.lootrush-visual-heading{
+    position: relative;
+
+    margin: 0 0 40px;
+
+    font-size: 16px;
+    font-weight: 400;
+
+    color: #FFFFFF;
+}
+
+.lootrush-visual-heading::before{
+    content: "";
+
+    position: absolute;
+    left: -22px;
+    top: 50%;
+
+    width: 14px;
+    height: 10px;
+
+    background-image: url("icons/arrow-hover.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    transform: translateY(-50%);
+}
+
+.lootrush-visual-description{
+    width: min(850px, 100%);
+    margin: 0 0 60px;
+
+    text-align: center;
+
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+
+    color: #FFFFFF;
+}
+
+.lootrush-visual-image{
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.lootrush-visual-image img{
+    display: block;
+
+    max-width: 100%;
+    height: auto;
+}
+
+.viewer-content{
+    height: calc(100vh - 176px);
+}
+
+/* =========================================
+   CASE STUDY NAVIGATION
+========================================= */
+
+.case-section-nav{ 
+    position: fixed; 
+
+    right: 32px;
+    left: auto;
+
+    top: 50%; 
+    transform: translateY(-50%); 
+
+    width: 30px;
+    height: auto;
+
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-end; 
+
+    gap: 8px; 
+
+    z-index: 200; 
+}
+
+
+/* BUTTON */
+
+.case-nav-item{
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    width: 22px;
+    height: 8px;
+
+    padding: 0;
+
+    border: none;
+    background: none;
+
+    cursor: pointer;
+}
+
+
+/* LINE */
+
+.case-nav-line{
+    display: block;
+
+    width: 10px;
+    height: 2px;
+
+    background-color: #A3A3A3;
+    border-radius: 999px;
+
+    transition:
+        width 0.35s ease,
+        background-color 0.25s ease;
+}
+
+
+/* HOVER */
+
+.case-nav-item:hover .case-nav-line{
+    width: 22px;
+    background-color: #FFFFFF;
+}
+
+
+/* ACTIVE */
+
+.case-nav-item.active .case-nav-line{
+    width: 22px;
+    background-color: #FFFFFF;
+}
+
+
+/* LABEL */
+
+.case-nav-label{
+    position: absolute;
+
+    right: 34px;
+    top: 50%;
+
+    transform: translate(6px, -50%);
+
+    white-space: nowrap;
+
+    font-size: 12px;
+    font-weight: 400;
+
+    color: #FFFFFF;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* SHOW LABEL */
+
+.case-nav-item:hover .case-nav-label{
+    opacity: 1;
+    transform: translate(0, -50%);
+}
+
+
+
+
+
+
+
+.case-section-nav{
+    position: fixed;
+
+    top: 50%;
+    right: max(
+        112px,
+        calc((100vw - 1280px) / 2 + 32px)
+    );
+
+    width: 30px;
+    height: auto;
+
+    transform: translateY(-50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+
+    gap: 8px;
+
+    margin: 0;
+    padding: 0;
+
+    z-index: 125;
+}
+
+
+.case-section-nav .case-nav-item{
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    width: 30px;
+    height: 8px;
+
+    margin: 0;
+    padding: 0;
+
+    background: none;
+    border: none;
+
+    cursor: pointer;
+}
+
+
+.case-section-nav .case-nav-line{
+    display: block;
+
+    width: 10px;
+    height: 2px;
+
+    background-color: #A3A3A3;
+    border-radius: 999px;
+
+    flex-shrink: 0;
+
+    transition:
+        width 0.35s ease,
+        background-color 0.25s ease;
+}
+
+
+.case-section-nav .case-nav-item:hover .case-nav-line{
+    width: 22px;
+    background-color: #FFFFFF;
+}
+
+
+.case-section-nav .case-nav-item.active .case-nav-line{
+    width: 22px;
+    background-color: #FFFFFF;
+}
+
+
+.case-section-nav .case-nav-label{
+    position: absolute;
+
+    right: 34px;
+    top: 50%;
+
+    transform: translate(6px, -50%);
+
+    white-space: nowrap;
+
+    font-size: 12px;
+    font-weight: 400;
+
+    color: #FFFFFF;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.case-section-nav .case-nav-item:hover .case-nav-label{
+    opacity: 1;
+    transform: translate(0, -50%);
+}
+
+.lootrush-section-title{
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+}
+
+/* =====================================================
+   HABITU
+===================================================== */
+
+.habitu-project{
+    width: 100%;
+}
+
+
+/* HERO */
+
+.habitu-hero-image img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+/* FINAL MOCKUP SHOWCASE */
+
+.habitu-final{
+    width: 100%;
+    margin-top: 40px;
+}
+
+.habitu-final img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* =====================================================
+   TROPICAL BITES
+===================================================== */
+
+.tropical-project{
+    width: 100%;
+}
+
+
+/* HERO */
+
+.tropical-hero-image img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+/* FINAL MOCKUP SHOWCASE */
+
+.tropical-final{
+    width: 100%;
+    margin-top: 40px;
+}
+
+.tropical-final img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+/* =====================================================
+   FORM
+===================================================== */
+
+.form-project{
+    width: 100%;
+}
+
+
+/* HERO */
+
+.form-hero-image img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+/* FINAL DESIGN */
+
+.form-final{
+    width: 100%;
+    margin-top: 40px;
+}
+
+.form-final img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+/* =====================================================
+   CONTACT VIEWER
+===================================================== */
+
+.contact-viewer{
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.35s ease,
+        background 0.35s ease,
+        visibility 0.35s ease;
+}
+
+
+.contact-viewer.open{
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    background: rgba(0, 0, 0, 0.8);
+}
+
+
+/* WINDOW */
+
+.contact-window{
+    width: 800px;
+    max-width: calc(100% - 80px);
+
+    padding: 40px;
+
+    background: #0F1012;
+    border-radius: 32px;
+
+    color: #FFFFFF;
+
+    opacity: 0;
+    transform: translateY(14px);
+    filter: blur(4px);
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease,
+        filter 0.35s ease;
+}
+
+
+.contact-viewer.open .contact-window{
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+
+/* CLOSING ANIMATION */
+
+.contact-viewer.closing{
+    opacity: 0;
+    background: rgba(0, 0, 0, 0);
+}
+
+
+.contact-viewer.closing .contact-window{
+    opacity: 0;
+    transform: translateY(14px);
+    filter: blur(4px);
+}
+
+
+/* SEND MESSAGE ANIMATION */
+
+.contact-viewer.sending .contact-window{
+    opacity: 0;
+    transform: translateY(-10px);
+    filter: blur(6px);
+}
+
+
+/* =====================================================
+   TOP BAR
+===================================================== */
+
+.contact-topbar{
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 28px;
+
+    border-bottom: 1px solid #2F2F2F;
+}
+
+
+.contact-topbar h2{
+    margin: 0;
+
+    font-size: 18px;
+    font-weight: 500;
+
+    color: #FFFFFF;
+}
+
+
+.contact-close-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    padding: 0;
+
+    border: none;
+
+    background: none;
+
+    color: #FFFFFF;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.contact-content{
+    padding: 64px 80px 80px;
+}
+
+
+.contact-intro{
+    max-width: 620px;
+
+    margin-bottom: 48px;
+}
+
+
+.contact-intro h3{
+    margin: 0 0 12px;
+
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1.1;
+
+    color: #FFFFFF;
+}
+
+
+.contact-intro p{
+    margin: 0;
+
+    font-size: 16px;
+    line-height: 1.6;
+
+    color: #A3A3A3;
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.contact-form{
+    display: flex;
+    flex-direction: column;
+
+    gap: 24px;
+}
+
+
+.contact-field{
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.contact-field label{
+    font-size: 13px;
+    font-weight: 500;
+
+    color: #FFFFFF;
+}
+
+
+.contact-field input,
+.contact-field textarea{
+    width: 100%;
+
+    padding: 16px 18px;
+
+    border: 1px solid #2F2F2F;
+    border-radius: 12px;
+
+    background: #121212;
+
+    color: #FFFFFF;
+
+    font-family: inherit;
+    font-size: 15px;
+
+    outline: none;
+
+    transition: border-color 0.2s ease;
+}
+
+
+.contact-field input:focus,
+.contact-field textarea:focus{
+    border-color: #A3A3A3;
+}
+
+
+.contact-field textarea{
+    min-height: 160px;
+
+    resize: vertical;
+}
+
+
+/* =====================================================
+   SEND MESSAGE BUTTON
+===================================================== */
+
+.contact-submit-button{
+    align-self: flex-start;
+
+    background: none;
+    border: none;
+
+    padding: 0;
+
+    font-family: inherit;
+    color: inherit;
+
+    cursor: pointer;
+}
+.case-desktop-only{
+    display: flex;
+    width: 100%;
+}
+
+.case-mobile-only{
+    display: none;
+}
+
+/* TEMPORARILY HIDE SOCIAL LINKS */
+.social-links{
+    display: none;
+}
+
+.mobile-menu-button{
+    display: none;
+}
+
+/* =====================================================
+   MOBILE — MAIN WEBSITE
+===================================================== */
+
+@media (max-width: 768px){
+
+
+    /* =================================================
+       GLOBAL
+    ================================================== */
+
+    html{
+        scrollbar-gutter: auto;
+    }
+
+    body{
+        overflow-x: hidden;
+    }
+
+
+    /* =================================================
+       NAVIGATION
+    ================================================== */
+
+    nav{
+        top: 32px;
+
+        width: calc(100% - 40px);
+
+        left: 50%;
+        transform: translateX(-50%);
+
+        justify-content: center;
+    }
+
+    .social-links{
+        display: none;
+    }
+
+    .nav-buttons{
+        width: 100%;
+
+        justify-content: space-between;
+
+        gap: 0;
+    }
+
+    nav a{
+        font-size: 13px;
+    }
+
+    .nav-item{
+        gap: 6px;
+    }
+
+    nav{
+    top: 32px;
+    width: calc(100% - 40px);
+    left: 50%;
+    transform: translateX(-50%);
+
+    justify-content: flex-start;
+}
+
+.social-links{
+    display: none;
+}
+
+
+/* ================================
+   MOBILE HAMBURGER
+================================ */
+
+.mobile-menu-button{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    z-index: 20;
+}
+
+.mobile-menu-line{
+    display: block;
+
+    height: 2px;
+
+    background-color: #A3A3A3;
+    border-radius: 999px;
+
+    transition:
+        width 0.35s ease,
+        background-color 0.25s ease;
+}
+
+.mobile-menu-line-1{
+    width: 22px;
+}
+
+.mobile-menu-line-2{
+    width: 15px;
+}
+
+.mobile-menu-line-3{
+    width: 10px;
+}
+
+.lootrush-visual-block{
+    margin-top: 40px;
+}
+
+
+/* ================================
+   MOBILE NAV LINKS
+================================ */
+
+.nav-buttons{
+    position: absolute;
+
+    top: 40px;
+    left: 0;
+    right: auto;
+
+    width: 180px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 24px;
+
+    padding: 24px;
+
+    background: #0F1012;
+    border-radius: 20px;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(-8px);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s ease;
+}
+
+.nav-buttons.open{
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateY(0);
+}
+
+nav a{
+    font-size: 14px;
+}
+
+.mobile-menu-button.open .mobile-menu-line{
+    width: 22px;
+    background-color: #FFFFFF;
+}
+
+
+    /* =================================================
+       HERO
+    ================================================== */
+
+    .hero{
+        height: 100svh;
+        min-height: 620px;
+
+        margin-bottom: 100px;
+    }
+
+    .hero-content{
+        width: calc(100% - 40px);
+
+        top: 45%;
+
+        text-align: center;
+    }
+
+    .hero-heading{
+        width: 100%;
+    }
+
+    .hero-heading h1{
+        font-size: 38px;
+        line-height: 0.95;
+
+        text-align: center;
+    }
+
+    .hero-name{
+        margin-bottom: 16px;
+
+        font-size: 16px;
+
+        text-align: center;
+    }
+
+    .tagline{
+        margin-top: 16px;
+
+        font-size: 16px;
+
+        text-align: center;
+    }
+
+    .topdown-gradient{
+        height: 120px;
+    }
+
+    .bottomup-gradient{
+        height: 140px;
+    }
+
+
+    /* =================================================
+       SELECTED WORK
+    ================================================== */
+
+    .selected-work{
+        margin-bottom: 120px;
+        scroll-margin-top: 100px;
+    }
+
+    .work-container{
+        width: calc(100% - 40px);
+    }
+
+    .work-container h2{
+        margin-bottom: 80px;
+
+        font-size: 20px;
+    }
+
+    .project-row,
+    .project-row-reverse{
+        width: 100%;
+
+        flex-direction: column;
+
+        gap: 44px;
+
+        margin-bottom: 120px;
+    }
+
+    .project-row-reverse .project-info{
+        order: 2;
+    }
+
+    .project-row-reverse .project-visual{
+        order: 1;
+    }
+
+    .project-visual{
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+    }
+
+    .project-image,
+    .project-image-2{
+        width: min(88%, 340px);
+        height: auto;
+    }
+
+    .project-glow{
+        width: 320px;
+        height: 320px;
+
+        filter: blur(90px);
+    }
+
+    .project-info{
+        width: 100%;
+
+        align-items: center;
+
+        text-align: center;
+    }
+
+    .project-info h3{
+        margin-bottom: 20px;
+
+        font-size: 26px;
+    }
+
+    .project-info p{
+        max-width: 340px;
+
+        margin-bottom: 24px;
+
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .project-tags{
+        justify-content: center;
+        flex-wrap: wrap;
+
+        gap: 12px 20px;
+
+        margin-bottom: 48px;
+    }
+
+    .projects-link{
+        transform: none;
+    }
+
+
+    /* =================================================
+       ABOUT
+    ================================================== */
+
+.about-me{
+    min-height: 100svh;
+    margin-bottom: 120px;
+
+    background-size: auto 80%;
+    background-position: 80% center;
+    background-repeat: no-repeat;
+}
+
+    .about-container{
+        width: calc(100% - 40px);
+        min-height: 100svh;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-me h2{
+        padding-top: 100px;
+
+        font-size: 20px;
+    }
+
+    .about-text-container{
+        position: static;
+
+        width: 100%;
+        max-width: 380px;
+
+        margin: auto 0;
+
+        transform: none;
+
+        gap: 40px;
+
+        text-align: center;
+    }
+
+    .about-text{
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+.about-fade-left{
+    width: 100px;
+    background: linear-gradient(
+        to right,
+        #0F1012 0%,
+        #0F1012 5%,
+        transparent 100%
+    );
+}
+
+.about-fade-right{
+    width: 100px;
+    background: linear-gradient(
+        to left,
+        #0F1012 0%,
+        #0F1012 5%,
+        transparent 100%
+    );
+}
+
+.about-fade-top{
+    top: 10%;
+    height: 80px;
+
+    background: linear-gradient(
+        to bottom,
+        #0F1012 0%,
+        #0F1012 5%,
+        transparent 100%
+    );
+}
+
+.about-fade-bottom{
+    bottom: 10%;
+    height: 80px;
+
+    background: linear-gradient(
+        to top,
+        #0F1012 0%,
+        #0F1012 5%,
+        transparent 100%
+    );
+}
+
+
+
+    /* =================================================
+       CONTACT
+    ================================================== */
+
+    .contact-container{
+        width: calc(100% - 40px);
+
+        text-align: center;
+    }
+
+    .contact h4{
+        margin-bottom: 24px;
+
+        font-size: 23px;
+    }
+
+    .contact-info{
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .contact-cta{
+        margin-bottom: 12px;
+    }
+
+    .email{
+        margin-bottom: 56px;
+
+        word-break: break-word;
+    }
+
+    .get-in-touch{
+        transform: none;
+
+        margin-bottom: 140px;
+    }
+
+    /* =====================================================
+   MOBILE — PROJECT VIEWER SHELL
+===================================================== */
+
+.project-viewer{
+    padding: 20px;
+}
+
+
+/* TOP BAR */
+
+.viewer-topbar{
+    width: 100%;
+    height: 56px;
+
+    padding: 0 20px;
+    margin-bottom: 12px;
+}
+
+.viewer-topbar h2{
+    font-size: 15px;
+}
+
+
+/* MENU + CLOSE */
+
+.viewer-menu-icon-wrapper{
+    width: 20px;
+    height: 20px;
+}
+
+.viewer-close-button img{
+    width: 18px;
+    height: 18px;
+}
+
+
+/* MAIN VIEWER CONTENT */
+
+.viewer-content{
+    width: 100%;
+
+    height: calc(100svh - 108px);
+
+    padding: 32px 20px;
+
+    border-radius: 20px;
+}
+
+
+/* HIDE DESKTOP SIDE NAVIGATION */
+
+.case-section-nav{
+    display: none;
+}
+
+.drawer-handle,
+.drawer-window{
+    display: none;
+}
+
+}
+
+@media (max-width: 768px){
+
+    .project-viewer .drawer-handle{
+        display: none !important;
+    }
+
+    .project-viewer .drawer-window{
+        display: none !important;
+    }
+
+    /* =====================================================
+   MOBILE — LOOTRUSH
+===================================================== */
+
+.case-desktop-only{
+    display: none !important;
+}
+
+.case-mobile-only{
+    display: block;
+    width: 100%;
+}
+
+
+/* ================================
+   GENERAL
+================================ */
+
+.lootrush-case-study{
+    width: 100%;
+}
+
+.lootrush-section{
+    width: 100%;
+}
+
+.lootrush-section-title{
+    font-size: 16px !important;
+}
+
+
+
+
+/* ================================
+   HERO
+================================ */
+
+.lootrush-hero{
+    width: 100%;
+    margin-bottom: 100px;
+
+    padding-top: 20px;
+}
+
+.lootrush-hero-image{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: visible;
+}
+
+.lootrush-hero-image img{
+    width: 150%;
+    max-width: none;
+    height: auto;
+}
+
+/* MAIN HERO — SIDE FADES TO VIEWER EDGES */
+
+.lootrush-hero-image{
+    overflow: visible;
+}
+
+/* MAIN HERO — TOP/BOTTOM FADES TO VIEWER EDGES */
+
+.lootrush-hero-image::before{
+    left: -20px;
+    right: -20px;
+    width: auto;
+}
+
+.lootrush-hero-image::after{
+    left: -20px;
+    right: -20px;
+    width: auto;
+}
+
+.lootrush-hero-text{
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.lootrush-hero-text p{
+    max-width: 300px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* ================================
+   LOOTRUSH — OVERVIEW
+================================ */
+
+.lootrush-overview-content{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 48px;
+}
+
+
+/* IMAGE */
+
+/* OVERVIEW IMAGE */
+
+.lootrush-overview-image{
+    position: relative;
+
+    width: 100%;
+    height: 300px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: visible;
+}
+
+.lootrush-overview-image img{
+    position: absolute;
+
+    width: 650px;
+    max-width: none;
+    height: auto;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+
+/* TEXT */
+
+.lootrush-overview-text{
+    width: 100%;
+    max-width: none;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 32px;
+
+    text-align: center;
+}
+
+.lootrush-overview-text .lootrush-body-text{
+    width: 100%;
+    max-width: none;
+
+    padding: 0;
+
+    font-size: 13px;
+    line-height: 1.5;
+
+    text-align: center;
+}
+
+
+/* ================================
+   RESEARCH METHODS
+================================ */
+
+.lootrush-methods{
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+}
+
+.lootrush-method-card{
+    width: 100%;
+    min-height: auto;
+
+    padding: 20px;
+
+    gap: 14px;
+}
+
+.lootrush-method-card h3{
+    font-size: 14px;
+}
+
+.lootrush-method-card p{
+    font-size: 13px;
+}
+
+
+/* ================================
+   PERSONA
+================================ */
+
+.lootrush-persona-top{
+    width: 100%;
+
+    flex-direction: column;
+
+    gap: 32px;
+    margin-bottom: 48px;
+}
+
+.lootrush-persona-image{
+    width: 100%;
+}
+
+.lootrush-persona-image img{
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+}
+
+.lootrush-persona-details{
+    width: 100%;
+
+    gap: 12px;
+}
+
+.lootrush-persona-details span{
+    font-size: 14px;
+}
+
+.lootrush-persona-info{
+    width: 100%;
+    gap: 36px;
+}
+
+.lootrush-persona-block{
+    gap: 12px;
+}
+
+.lootrush-persona-block h3{
+    font-size: 14px;
+}
+
+.lootrush-persona-block p,
+.lootrush-persona-block li{
+    font-size: 13px;
+}
+
+/* =====================================================
+   USER JOURNEY MAP SLIDER
+===================================================== */
+
+.journey-slider{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    touch-action: pan-y;
+    cursor: grab;
+    user-select: none;
+}
+
+.journey-slider:active{
+    cursor: grabbing;
+}
+
+
+.journey-slides{
+    width: 100%;
+    display: grid;
+}
+
+
+.journey-slide{
+    width: 100%;
+
+    grid-area: 1 / 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    opacity: 0;
+    transform: translateX(-40px);
+
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease,
+        visibility 0s linear 0.35s;
+}
+
+
+.journey-slide.active{
+    opacity: 1;
+    transform: translateX(0);
+
+    visibility: visible;
+    pointer-events: auto;
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease,
+        visibility 0s;
+}
+
+
+/* STAGE */
+
+.journey-stage{
+    min-width: 120px;
+
+    margin: 0 0 48px;
+    padding: 14px 22px;
+
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+
+    box-sizing: border-box;
+
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+
+    color: #E5E7EB;
+}
+
+
+/* INFORMATION */
+
+.journey-info{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 48px;
+}
+
+
+.journey-block{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    text-align: center;
+}
+
+
+.journey-block h4{
+    margin: 0;
+
+    font-size: 14px;
+    font-weight: 400;
+
+    color: #E5E7EB;
+}
+
+
+.journey-block p{
+    margin: 0;
+
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+
+    color: #D4D4D4;
+}
+
+
+/* DOTS */
+
+.journey-slider-dots{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 48px;
+}
+
+
+.journey-slider-dot{
+    width: 6px;
+    height: 6px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #555;
+
+    cursor: pointer;
+}
+
+
+.journey-slider-dot.active{
+    background: #E5E7EB;
+}
+
+/* =====================================================
+   COMPETITIVE AUDIT SLIDER
+===================================================== */
+
+.audit-slider{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    touch-action: pan-y;
+    cursor: grab;
+    user-select: none;
+}
+
+.audit-slider:active{
+    cursor: grabbing;
+}
+
+
+.audit-slides{
+    width: 100%;
+
+    display: grid;
+}
+
+.audit-slide{
+    width: 100%;
+
+    grid-area: 1 / 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    opacity: 0;
+    transform: translateX(-40px);
+
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease,
+        visibility 0s linear 0.35s;
+}
+
+.audit-slide.active{
+    opacity: 1;
+    transform: translateX(0);
+
+    visibility: visible;
+    pointer-events: auto;
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease,
+        visibility 0s;
+}
+
+
+/* TITLE */
+
+.audit-slide-title{
+    margin: 0 0 52px;
+
+    font-size: 14px;
+    font-weight: 400;
+
+    color: #E5E7EB;
+}
+
+
+/* TABLE */
+
+.audit-table{
+    position: relative;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 52px;
+}
+
+.audit-table::before{
+    content: "";
+
+    position: absolute;
+
+    top: -28px;
+    bottom: -28px;
+
+    left: 48%;
+
+    width: 1px;
+
+    background: #E5E7EB;
+}
+
+
+/* ROW */
+
+.audit-row{
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 48% 52%;
+
+    align-items: center;
+}
+
+.audit-row > span:first-child{
+    padding-left: 12px;
+
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.4;
+
+    color: #D4D4D4;
+}
+
+
+/* STATUS CIRCLES */
+
+.audit-status{
+    width: 16px;
+    height: 16px;
+
+    justify-self: center;
+
+    border: 1px solid #E5E7EB;
+    border-radius: 50%;
+
+    box-sizing: border-box;
+}
+
+.audit-status.filled{
+    background: #E5E7EB;
+}
+
+
+/* DOTS */
+
+.audit-slider-dots{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 48px;
+    margin-bottom: 180px;
+}
+
+.audit-slider-dot{
+    width: 6px;
+    height: 6px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #555;
+
+    cursor: pointer;
+}
+
+.audit-slider-dot.active{
+    background: #E5E7EB;
+}
+
+/* =====================================================
+   COMPETITIVE AUDIT — EXPERIENCE SLIDER
+===================================================== */
+
+.audit-experience-slider{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    touch-action: pan-y;
+    cursor: grab;
+    user-select: none;
+}
+
+.audit-experience-slider:active{
+    cursor: grabbing;
+}
+
+
+.audit-experience-slides{
+    width: 100%;
+    display: grid;
+}
+
+
+.audit-experience-slide{
+    width: 100%;
+
+    grid-area: 1 / 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    opacity: 0;
+    transform: translateX(-40px);
+
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease,
+        visibility 0s linear 0.35s;
+}
+
+
+.audit-experience-slide.active{
+    opacity: 1;
+    transform: translateX(0);
+
+    visibility: visible;
+    pointer-events: auto;
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease,
+        visibility 0s;
+}
+
+
+/* TITLE */
+
+.audit-experience-title{
+    margin: 0 0 52px;
+
+    font-size: 14px;
+    font-weight: 400;
+
+    color: #E5E7EB;
+}
+
+
+/* TABLE */
+
+.audit-experience-table{
+    position: relative;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 52px;
+}
+
+
+.audit-experience-table::before{
+    content: "";
+
+    position: absolute;
+
+    top: -28px;
+    bottom: -28px;
+
+    left: 48%;
+
+    width: 1px;
+
+    background: #E5E7EB;
+}
+
+
+/* ROW */
+
+.audit-experience-row{
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 48% 52%;
+
+    align-items: center;
+}
+
+
+.audit-experience-row > span{
+    padding-left: 12px;
+
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.4;
+
+    color: #D4D4D4;
+}
+
+
+/* 5-POINT RATING */
+
+.audit-rating{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.audit-rating span{
+    width: 10px;
+    height: 10px;
+
+    flex-shrink: 0;
+
+    border: 1px solid #E5E7EB;
+    border-radius: 50%;
+
+    box-sizing: border-box;
+}
+
+
+.audit-rating span.filled{
+    background: #E5E7EB;
+}
+
+
+/* SLIDER DOTS */
+
+.audit-experience-dots{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 48px;
+    margin-bottom: 0px;
+}
+
+
+.audit-experience-dot{
+    width: 6px;
+    height: 6px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #555;
+
+    cursor: pointer;
+}
+
+
+.audit-experience-dot.active{
+    background: #E5E7EB;
+}
+
+
+/* ================================
+   LOOTRUSH — KEY FINDINGS
+================================ */
+
+.lootrush-findings-list{
+    width: 100%;
+    max-width: 310px;
+
+    margin: 0 auto;
+
+    gap: 48px;
+}
+
+.lootrush-finding{
+    width: 100%;
+
+    gap: 14px;
+}
+
+.lootrush-finding h3{
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.lootrush-finding p{
+    width: 100%;
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* ================================
+   LOOTRUSH — DESIGN OPPORTUNITIES
+================================ */
+
+.lootrush-opportunities-list{
+    width: 100%;
+    max-width: 310px;
+
+    margin: 0 auto;
+
+    gap: 48px;
+}
+
+.lootrush-opportunity{
+    width: 100%;
+
+    gap: 14px;
+}
+
+.lootrush-opportunity h3{
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.lootrush-opportunity p{
+    width: 100%;
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* =====================================================
+   WIREFRAME SLIDER
+===================================================== */
+
+.wireframe-slider{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    touch-action: pan-y;
+    cursor: grab;
+    user-select: none;
+}
+
+.wireframe-slider:active{
+    cursor: grabbing;
+}
+
+
+.wireframe-slides{
+    width: 100%;
+    display: grid;
+}
+
+
+.wireframe-slide{
+    width: 100%;
+
+    grid-area: 1 / 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    transform: translateX(-40px);
+
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease,
+        visibility 0s linear 0.35s;
+}
+
+
+.wireframe-slide.active{
+    opacity: 1;
+    transform: translateX(0);
+
+    visibility: visible;
+    pointer-events: auto;
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease,
+        visibility 0s;
+}
+
+.wireframe-name{
+    margin: 0 0 32px;
+
+    font-size: 14px;
+    font-weight: 400;
+
+    text-align: center;
+
+    color: #E5E7EB;
+}
+
+
+/* IMAGE */
+
+.wireframe-slide img{
+    display: block;
+
+    width: 70%;
+    max-width: 500px;
+    height: auto;
+}
+
+
+/* DOTS */
+
+.wireframe-slider-dots{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 48px;
+}
+
+
+.wireframe-slider-dot{
+    width: 6px;
+    height: 6px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #555;
+
+    cursor: pointer;
+}
+
+
+.wireframe-slider-dot.active{
+    background: #E5E7EB;
+}
+
+/* =====================================================
+   DESIGN ITERATIONS
+===================================================== */
+
+.iteration-showcase{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 100px;
+}
+
+
+.iteration-block{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* FIXED TITLE */
+
+.iteration-name{
+    margin: 0 0 32px;
+
+    font-size: 14px;
+    font-weight: 400;
+
+    text-align: center;
+
+    color: #E5E7EB;
+}
+
+
+/* SLIDER */
+
+.iteration-slider{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    touch-action: pan-y;
+    cursor: grab;
+    user-select: none;
+}
+
+.iteration-slider:active{
+    cursor: grabbing;
+}
+
+
+.iteration-slides{
+    width: 100%;
+    display: grid;
+}
+
+
+.iteration-slide{
+    width: 100%;
+
+    grid-area: 1 / 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    transform: translateX(-40px);
+
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease,
+        visibility 0s linear 0.35s;
+}
+
+
+.iteration-slide.active{
+    opacity: 1;
+    transform: translateX(0);
+
+    visibility: visible;
+    pointer-events: auto;
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease,
+        visibility 0s;
+}
+
+
+/* SAME SIZE AS WIREFRAMES */
+
+.iteration-slide img,
+.iteration-single-image img{
+    display: block;
+
+    width: 70%;
+    max-width: 500px;
+    height: auto;
+}
+
+
+/* SINGLE WISHLIST IMAGE */
+
+.iteration-single-image{
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+
+/* DOTS */
+
+.iteration-slider-dots{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 32px;
+}
+
+
+.iteration-slider-dot{
+    width: 6px;
+    height: 6px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #555;
+
+    cursor: pointer;
+}
+
+
+.iteration-slider-dot.active{
+    background: #E5E7EB;
+}
+
+.lootrush-mobile-typography{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 72px;
+
+    margin-top: 10px;
+}
+
+.mobile-type-group{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 30px;
+}
+
+.mobile-type-font-name{
+    font-family: 'Geist', sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+
+    color: #E5E7EB;
+}
+
+.lootrush-case-study .mobile-type-geist-sample{
+    font-family: 'Geist', sans-serif;
+
+    font-size: 180px;
+    font-weight: 300;
+    line-height: 0.8;
+
+    color: #FFFFFF;
+}
+
+.mobile-type-weight{
+    font-family: 'Geist', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+
+    color: #D4D4D4;
+}
+
+.mobile-type-audiowide-name{
+    font-family: 'Geist', sans-serif;
+}
+
+.lootrush-case-study .mobile-type-audiowide-sample{
+    font-family: 'Audiowide', sans-serif;
+
+    font-size: 180px;
+    font-weight: 400;
+    line-height: 0.9;
+
+    color: #FFFFFF;
+}
+
+/* ================================
+   LOOTRUSH — USABILITY TESTING DETAILS
+================================ */
+
+.lootrush-testing-details{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 32px;
+
+    margin: 48px 0 64px;
+
+    text-align: center;
+}
+.lootrush-testing-tasks{
+    margin-top: 48px;
+}
+
+.lootrush-testing-details span{
+    width: auto;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 14px;
+    line-height: 1.4;
+
+    text-align: center;
+}
+
+/* ================================
+   LOOTRUSH — HIGH-FI HERO
+================================ */
+
+.lootrush-highfi-hero{
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    overflow: visible;
+}
+
+.lootrush-highfi-hero img{
+    width: 150%;
+    max-width: none;
+    height: auto;
+}
+/* HIGH-FI — ALIGN FADES WITH IMAGE */
+
+.lootrush-highfi-hero{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: visible;
+}
+
+.lootrush-highfi-hero img{
+    width: 150%;
+    max-width: none;
+    height: auto;
+}
+
+/* HIGH-FI — SIDE FADES TO VIEWER EDGES */
+
+.lootrush-highfi-hero::after{
+    left: -20px;
+    right: -20px;
+
+    width: auto;
+}
+
+.lootrush-mobile-palette{
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    justify-items: center;
+
+    gap: 56px 40px;
+
+    margin-top: 10px;
+}
+
+
+.mobile-palette-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 22px;
+}
+
+
+.mobile-palette-item-last{
+    grid-column: 1 / -1;
+}
+
+
+.mobile-color-circle{
+    display: block;
+
+    width: 70px;
+    height: 70px;
+
+    border-radius: 50%;
+}
+
+
+.color-dark{
+    background: #1E1F22;
+}
+
+
+.color-gray{
+    background: #9598A3;
+}
+
+
+.color-orange{
+    background: #F97316;
+}
+
+
+.color-white{
+    background: #FFFFFF;
+}
+
+
+.color-mid-gray{
+    background: #35363B;
+}
+
+
+.lootrush-case-study .mobile-color-code{
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1;
+
+    color: #D4D4D4;
+}
+.core-components-mobile{
+    width: 100%;
+}
+
+.core-components-slider{
+    width: 100%;
+    overflow: hidden;
+    touch-action: pan-y;
+}
+
+.core-components-slides{
+    width: 100%;
+    display: grid;
+}
+
+.core-components-slide{
+    grid-area: 1 / 1;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+
+    transform: translateX(20px);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s;
+}
+
+.core-components-slide.active{
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+
+    transform: translateX(0);
+}
+
+.core-components-slide img{
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* DOTS */
+
+.core-components-dots{
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 24px;
+}
+
+.core-components-dot{
+    width: 7px;
+    height: 7px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #35363B;
+
+    cursor: pointer;
+}
+
+.core-components-dot.active{
+    background: #FFFFFF;
+}
+
+/* =====================================================
+   MOBILE INFORMATION ARCHITECTURE
+===================================================== */
+
+.mobile-ia{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* HOME */
+
+.mobile-ia-root,
+.mobile-ia-node{
+    width: 120px;
+
+    padding: 14px 12px;
+
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+
+    box-sizing: border-box;
+
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+
+    color: #E5E7EB;
+}
+
+
+/* BRANCH FROM HOME */
+
+.mobile-ia-connector{
+    position: relative;
+
+    width: 75%;
+    height: 72px;
+}
+
+
+.mobile-ia-line-vertical{
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 1px;
+    height: 28px;
+
+    background: #E5E7EB;
+
+    transform: translateX(-50%);
+}
+
+
+.mobile-ia-line-horizontal{
+    position: absolute;
+
+    top: 28px;
+    left: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background: #E5E7EB;
+}
+
+
+.mobile-ia-branches span{
+    position: absolute;
+
+    top: 28px;
+
+    width: 1px;
+    height: 44px;
+
+    background: #E5E7EB;
+}
+
+
+.mobile-ia-branches span:first-child{
+    left: 25%;
+}
+
+
+.mobile-ia-branches span:last-child{
+    right: 25%;
+}
+
+
+/* 2 X 2 GRID */
+
+.mobile-ia-grid{
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    column-gap: 28px;
+    row-gap: 0;
+
+    align-items: start;
+}
+
+.mobile-ia-bottom-connector{
+    grid-column: 1 / -1;
+
+    position: relative;
+
+    width: 75%;
+    height: 72px;
+
+    margin: 32px auto 0;
+}
+
+
+.mobile-ia-bottom-line-vertical{
+    position: absolute;
+
+    top: -32px;
+    left: 50%;
+
+    width: 1px;
+    height: 60px;
+
+    background: #E5E7EB;
+
+    transform: translateX(-50%);
+}
+
+
+.mobile-ia-bottom-line-horizontal{
+    position: absolute;
+
+    top: 28px;
+    left: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background: #E5E7EB;
+}
+
+
+.mobile-ia-bottom-branches span{
+    position: absolute;
+
+    top: 28px;
+
+    width: 1px;
+    height: 44px;
+
+    background: #E5E7EB;
+}
+
+
+.mobile-ia-bottom-branches span:first-child{
+    left: 25%;
+}
+
+
+.mobile-ia-bottom-branches span:last-child{
+    right: 25%;
+}
+
+
+.mobile-ia-group{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* CHILD ITEMS */
+
+.mobile-ia-subitems{
+    width: 120px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin-top: 20px;
+}
+
+
+.mobile-ia-subitems span{
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 13px;
+    font-weight: 300;
+
+    color: #D4D4D4;
+}
+
+
+.mobile-ia-subitems img{
+    display: block;
+
+    width: 7px;
+    height: auto;
+
+    flex-shrink: 0;
+}
+
+/* ================================
+   LOOTRUSH — HIGH-FI FEATURES
+================================ */
+
+.lootrush-highfi-feature{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 0;
+    margin-bottom: 100px;
+}
+
+
+/* IMAGE WRAPPER */
+
+.lootrush-highfi-feature .lootrush-highfi-image{
+    order: 1;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex: none;
+
+    overflow: visible;
+}
+
+.lootrush-highfi-hero{
+    margin-bottom: 20px;
+}
+
+.lootrush-highfi-feature:first-of-type{
+    margin-top: 0;
+}
+
+
+/* ALL 3 IMAGES */
+
+.lootrush-highfi-feature .lootrush-highfi-image img{
+    display: block;
+
+    width: 165%;
+    max-width: none;
+    height: auto;
+}
+
+/* BUDGET FILTERING */
+.lootrush-highfi-budget .lootrush-highfi-image img{
+    position: relative;
+    left: 40px;
+}
+
+
+/* COMPARISON */
+.lootrush-highfi-comparison .lootrush-highfi-image img{
+    position: relative;
+    left: 40px;
+}
+
+
+/* SPEC EXPLANATIONS */
+.lootrush-highfi-specs .lootrush-highfi-image img{
+    position: relative;
+    left: -33px;
+}
+
+
+/* BUDGET IMAGE */
+
+.lootrush-highfi-budget .lootrush-highfi-image img{
+    transform: translateX(-4%);
+}
+
+
+/* COMPARISON IMAGE */
+
+.lootrush-highfi-comparison .lootrush-highfi-image img{
+    transform: translateX(-4%);
+}
+
+
+/* SPECS IMAGE */
+
+.lootrush-highfi-specs .lootrush-highfi-image img{
+    transform: translateX(4%);
+}
+
+
+/* TEXT */
+
+.lootrush-highfi-feature p{
+    order: 2;
+
+    width: 100%;
+    max-width: 310px;
+
+    flex: none;
+
+    margin: -80px auto 0;
+
+    position: relative;
+    z-index: 3;
+
+    font-size: 13px;
+    line-height: 1.5;
+
+    text-align: center;
+}
+
+.lootrush-final-visual{
+    width: 100%;
+    margin-top: -180px;
+}
+
+.lootrush-final-image{
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    overflow: visible;
+}
+
+.lootrush-final-image img{
+    display: block;
+
+    width: 180%;
+    max-width: none;
+    height: auto;
+
+    object-fit: contain;
+}
+
+.lootrush-user-flows{
+    width: 100%;
+}
+
+.user-flow-slider{
+    width: 100%;
+    overflow: hidden;
+}
+
+.user-flow-slides{
+    width: 100%;
+    display: grid;
+}
+
+.user-flow-slide{
+    grid-area: 1 / 1;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+
+    transform: translateX(20px);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s;
+}
+
+.user-flow-slide.active{
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+
+    transform: translateX(0);
+}
+
+.user-flow-title{
+    margin-bottom: 32px;
+
+    font-size: 18px;
+    font-weight: 500;
+    color: #FFFFFF;
+
+    text-align: center;
+}
+
+.user-flow-path{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-flow-step{
+    width: 152px;
+
+    padding: 14px 12px;
+
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+
+    box-sizing: border-box;
+
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+
+    color: #E5E7EB;
+}
+
+
+.user-flow-arrow{
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.user-flow-arrow img{
+    display: block;
+
+    width: 14px;
+    height: 10px;
+
+    max-width: none;
+
+    transform: rotate(90deg);
+}
+
+.user-flow-dots{
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 32px;
+}
+
+.user-flow-dot{
+    width: 7px;
+    height: 7px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #35363B;
+
+    cursor: pointer;
+}
+
+.user-flow-dot.active{
+    background: #FFFFFF;
+}
+
+/* ================================
+   LOOTRUSH — PROJECT DETAILS
+================================ */
+
+.lootrush-project-details{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 32px;
+
+    margin: 0 0 64px;
+
+    text-align: center;
+}
+
+.lootrush-detail{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.lootrush-detail-label{
+    font-size: 13px;
+}
+
+.lootrush-detail-value{
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+
+/* ================================
+   LOOTRUSH — DESIGN PROCESS
+================================ */
+
+.lootrush-process{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 24px;
+
+    text-align: center;
+}
+
+.lootrush-process-list{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 36px;
+
+    margin: 0;
+}
+
+.lootrush-process-list span{
+    position: relative;
+
+    width: 100%;
+
+    font-size: 13px;
+    line-height: 1.4;
+
+    text-align: center;
+}
+
+
+/* ARROWS BETWEEN PROCESS STEPS */
+
+.lootrush-process-list span:not(:last-child)::after{
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    right: auto;
+
+    top: calc(100% + 12px);
+
+    width: 14px;
+    height: 10px;
+
+    transform:
+        translateX(-50%)
+        rotate(90deg);
+
+    transform-origin: center;
+
+    background-image: url("icons/arrow-hover.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+/* ================================
+   PROJECTS VIEW — MOBILE
+================================ */
+
+.viewer-project-grid{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 24px;
+}
+
+
+/* WIDE CARDS */
+
+.viewer-project-card{
+    width: 100%;
+    height: 220px;
+
+    flex-shrink: 0;
+
+    border-radius: 24px;
+}
+
+
+/* IMAGE */
+
+.viewer-card-image{
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* TEXT */
+
+.viewer-card-info{
+    left: 24px;
+    right: 24px;
+    bottom: 24px;
+}
+
+.viewer-card-info h3{
+    font-size: 18px;
+}
+
+.viewer-card-info p{
+    font-size: 14px;
+}
+
+/* ================================
+   CONTACT VIEWER — MOBILE
+================================ */
+
+.contact-window{
+    width: calc(100% - 20px);
+    max-width: none;
+
+    max-height: calc(100svh - 20px);
+
+    padding: 0;
+
+    overflow-y: auto;
+
+    border-radius: 24px;
+}
+
+
+/* TOP BAR */
+
+.contact-topbar{
+    height: 56px;
+
+    padding: 0 20px;
+}
+
+
+/* CONTENT */
+
+.contact-content{
+    width: 100%;
+
+    padding: 40px 20px 48px;
+
+    box-sizing: border-box;
+}
+
+
+/* INTRO */
+
+.contact-intro{
+    width: 100%;
+    max-width: none;
+
+    margin-bottom: 40px;
+}
+
+.contact-intro h3{
+    font-size: 32px;
+    line-height: 1.05;
+
+    margin-bottom: 16px;
+}
+
+.contact-intro p{
+    width: 100%;
+
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* FORM */
+
+.contact-form{
+    width: 100%;
+
+    gap: 24px;
+}
+
+.contact-field{
+    width: 100%;
+}
+
+
+/* INPUTS */
+
+.contact-field input,
+.contact-field textarea{
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 14px 16px;
+
+    font-size: 14px;
+}
+
+
+/* MESSAGE */
+
+.contact-field textarea{
+    min-height: 140px;
+    resize: vertical;
+}
+
+.secondary-themes{
+    position: relative;
+
+    width: 100%;
+    min-height: 700px;
+
+    padding: 32px 48px 48px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: #E5E7EB;
+}
+
+
+
+
+
+/* =====================================================
+   SECONDARY RESEARCH SLIDER
+===================================================== */
+
+.secondary-slides{
+    width: 100%;
+
+    display: grid;
+}
+
+.secondary-slide{
+    width: 100%;
+
+    grid-area: 1 / 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    opacity: 0;
+    transform: translateX(-40px);
+
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease,
+        visibility 0s linear 0.35s;
+}
+
+.secondary-slide.active{
+    opacity: 1;
+    transform: translateX(0);
+
+    visibility: visible;
+    pointer-events: auto;
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease,
+        visibility 0s;
+}
+
+
+/* TITLE */
+
+.secondary-slide-title{
+    margin: 0;
+
+    font-size: 14px;
+    font-weight: 400;
+
+    text-align: center;
+
+    color: #E5E7EB;
+}
+
+
+/* =====================================================
+   THEMES
+===================================================== */
+
+.secondary-theme-list{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 80px;
+
+    padding: 80px 0 0;
+}
+
+.secondary-theme-item{
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+.secondary-theme-item p{
+    margin: 0;
+
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+
+    color: #D4D4D4;
+}
+
+
+/* =====================================================
+   EVIDENCE
+===================================================== */
+
+.secondary-evidence-list{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 32px;
+
+    padding: 48px 0 0;
+}
+
+.secondary-evidence-item{
+    display: flex;
+    align-items: flex-start;
+
+    gap: 12px;
+}
+
+.secondary-evidence-item p{
+    margin: 0;
+
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+
+    color: #D4D4D4;
+}
+
+
+/* ARROW */
+
+.secondary-theme-arrow{
+    width: 14px;
+    height: 10px;
+
+    flex-shrink: 0;
+
+    margin-top: 5px;
+
+    background-image: url("icons/arrow-hover.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.secondary-theme-item .secondary-theme-arrow{
+    margin-top: -2px;
+}
+
+
+/* =====================================================
+   DOTS
+===================================================== */
+
+.secondary-slider-dots{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 48px;
+    margin-bottom: 80px;
+}
+
+.secondary-slider-dot{
+    width: 6px;
+    height: 6px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #555;
+
+    cursor: pointer;
+}
+
+.secondary-slider-dot.active{
+    background: #E5E7EB;
+}
+
+.secondary-research-slider{
+    touch-action: pan-y;
+    cursor: grab;
+    user-select: none;
+}
+
+.secondary-research-slider:active{
+    cursor: grabbing;
+}
+
+/* =====================================================
+   INSIGHTS
+===================================================== */
+
+.secondary-insights-list{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 32px;
+
+    padding: 48px 0 0;
+}
+
+.secondary-insights-item{
+    display: flex;
+    align-items: flex-start;
+
+    gap: 12px;
+}
+
+.secondary-insights-item p{
+    margin: 0;
+
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+
+    color: #D4D4D4;
+}
+.lootrush-secondary-research{
+    margin-bottom: 80px;
+}
+
+/* =====================================================
+   LOOTRUSH — MOBILE TYPOGRAPHY CONSISTENCY
+===================================================== */
+
+/* MAIN BODY TEXT */
+.lootrush-case-study .lootrush-body-text,
+.lootrush-case-study .lootrush-section-intro,
+.lootrush-case-study .lootrush-hero-text p,
+.lootrush-case-study .lootrush-method-card p,
+.lootrush-case-study .lootrush-persona-block p,
+.lootrush-case-study .lootrush-persona-block li,
+.lootrush-case-study .lootrush-finding p,
+.lootrush-case-study .lootrush-opportunity p,
+.lootrush-case-study .journey-block p,
+.lootrush-case-study .lootrush-highfi-feature p,
+.lootrush-case-study .lootrush-visual-description{
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* SMALL HEADINGS / LABELS */
+.lootrush-case-study .lootrush-method-card h3,
+.lootrush-case-study .lootrush-persona-block h3,
+.lootrush-case-study .lootrush-finding h3,
+.lootrush-case-study .lootrush-opportunity h3,
+.lootrush-case-study .journey-block h4,
+.lootrush-case-study .lootrush-testing-details span{
+    font-size: 14px;
+}
+
+
+/* SECONDARY / META TEXT */
+.lootrush-case-study .lootrush-detail-label{
+    font-size: 13px;
+}
+
+/* =====================================================
+   TROPICAL BITES — MOBILE TYPOGRAPHY
+===================================================== */
+
+.tropical-typography-mobile{
+    width: 100%;
+
+    padding: 56px 0 24px;
+
+    box-sizing: border-box;
+}
+
+
+.tropical-type-specimen{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: 110px;
+
+    text-align: center;
+}
+
+
+.tropical-type-specimen:last-child{
+    margin-bottom: 0;
+}
+
+
+/* FONT NAME */
+
+.tropical-type-name{
+    margin-bottom: 46px;
+
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 1;
+
+    color: #E5E7EB;
+}
+
+
+/* NUNITO SAMPLE */
+
+.tropical-project .tropical-nunito-sample{
+    display: block;
+
+    margin-bottom: 36px;
+
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 180px;
+    font-weight: 300;
+    line-height: .8;
+
+    color: #FFFFFF;
+}
+
+
+/* FLOOD SAMPLE */
+
+.tropical-project .tropical-flood-sample{
+    display: block;
+
+    margin-bottom: 40px;
+
+    font-family: "Flood Std", sans-serif;
+    font-size: 180px;
+    font-weight: 400;
+    line-height: .8;
+
+    color: #FFFFFF;
+}
+
+
+/* WEIGHT LABEL */
+
+.tropical-project .tropical-type-weight{
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1;
+
+    color: #D4D4D4;
+}
+
+
+/* =====================================================
+   TROPICAL BITES — MOBILE COLOR PALETTE
+===================================================== */
+
+.lootrush-mobile-palette{
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    justify-items: center;
+
+    gap: 56px 40px;
+
+    margin-top: 10px;
+}
+
+
+.mobile-palette-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 22px;
+}
+
+
+.mobile-palette-item-last{
+    grid-column: 1 / -1;
+}
+
+
+.mobile-color-circle{
+    display: block;
+
+    width: 70px;
+    height: 70px;
+
+    border-radius: 50%;
+}
+
+
+.tropical-color-cream{
+    background: #FFECD1;
+}
+
+
+.tropical-color-coral{
+    background: #FF6B6B;
+}
+
+
+.tropical-color-light{
+    background: #F9EFE1;
+}
+
+
+.tropical-color-navy{
+    background: #1D3557;
+}
+
+
+.tropical-color-turquoise{
+    background: #A8DADC;
+}
+
+
+.mobile-color-code{
+    font-family: 'Geist', sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 300 !important;
+    line-height: 1 !important;
+
+    color: #D4D4D4 !important;
+}
+
+.tropical-final-mobile{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 0;
+
+    overflow: visible;
+}
+
+.tropical-final-mobile img{
+    display: block;
+
+    width: 150%;
+    max-width: none;
+    height: auto;
+
+    object-fit: contain;
+}
+
+.tropical-final-mobile img:nth-child(2),
+.tropical-final-mobile img:nth-child(3){
+    width: 180%;
+}
+
+/* =====================================================
+   HABITU — MOBILE TYPOGRAPHY
+===================================================== */
+
+.habitu-mobile-typography{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 72px;
+
+    margin-top: 10px;
+}
+
+.habitu-type-group{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 30px;
+}
+
+.habitu-type-font-name{
+    font-family: 'Geist', sans-serif;
+
+    font-size: 22px;
+    font-weight: 300;
+
+    color: #E5E7EB;
+}
+
+.habitu-type-sofia-sample{
+    font-family: 'Sofia Pro', sans-serif;
+
+    font-size: 180px;
+    font-weight: 300;
+    line-height: .8;
+
+    color: #FFFFFF;
+}
+
+.habitu-type-proxima-sample{
+    font-family: 'Proxima Nova', sans-serif;
+
+    font-size: 180px;
+    font-weight: 400;
+    line-height: .8;
+
+    color: #FFFFFF;
+}
+
+.habitu-type-weight{
+    font-family: 'Geist', sans-serif;
+
+    font-size: 13px;
+    font-weight: 300;
+
+    color: #D4D4D4;
+}
+
+/* =====================================================
+   HABITU — MOBILE COLOR PALETTE
+===================================================== */
+
+.habitu-color-black{
+    background: #1A1A1A;
+}
+
+.habitu-color-red{
+    background: #6FFFE9;
+}
+
+.habitu-color-dark{
+    background: #9C50E1;
+}
+
+.habitu-color-white{
+    background: #FFFFFF;
+}
+
+.habitu-color-card{
+    background: #A1A1A1;
+}
+
+/* =====================================================
+   HABITU — MOBILE FINAL VISUAL
+===================================================== */
+
+.habitu-final-mobile{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 0;
+
+    overflow: visible;
+}
+
+.habitu-final-mobile img{
+    display: block;
+
+    width: 150%;
+    max-width: none;
+    height: auto;
+
+    object-fit: contain;
+}
+
+.habitu-final-mobile img:nth-child(2),
+.habitu-final-mobile img:nth-child(3){
+    width: 180%;
+}
+
+/* =====================================================
+   FORM — MOBILE TYPOGRAPHY
+===================================================== */
+
+.form-mobile-typography{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 72px;
+
+    margin-top: 10px;
+}
+
+.form-type-group{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 30px;
+}
+
+.form-type-font-name{
+    font-family: 'Geist', sans-serif;
+
+    font-size: 22px;
+    font-weight: 300;
+
+    color: #E5E7EB;
+}
+
+.form-type-inter-sample{
+    font-family: 'Inter', sans-serif;
+
+    font-size: 180px;
+    font-weight: 300;
+    line-height: .8;
+
+    color: #FFFFFF;
+}
+
+.form-type-sora-sample{
+    font-family: 'Sora', sans-serif;
+
+    font-size: 180px;
+    font-weight: 700;
+    line-height: .8;
+
+    color: #FFFFFF;
+}
+
+.form-type-weight{
+    font-family: 'Geist', sans-serif;
+
+    font-size: 13px;
+    font-weight: 300;
+
+    color: #D4D4D4;
+}
+/* =====================================================
+   FORM — MOBILE COLOR PALETTE
+===================================================== */
+
+.form-color-black{
+    background: #0D0D0D;
+}
+
+.form-color-red{
+    background: #DD1E1E;
+}
+
+.form-color-dark{
+    background: #121212;
+}
+
+.form-color-white{
+    background: #FFFFFF;
+}
+
+.form-color-card{
+    background: #2F2F2F;
+}
+
+/* =====================================================
+   FORM — MOBILE FINAL DESIGN
+===================================================== */
+
+.form-final-mobile{
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    overflow: visible;
+}
+
+.form-final-mobile img{
+    display: block;
+
+    width: 150%;
+    max-width: none;
+    height: auto;
+
+    object-fit: contain;
+}
+}
