@@ -4088,33 +4088,50 @@ if (contactForm) {
             contactForm
         )
 
-        .then(function() {
+.then(function() {
 
-            /* EMAIL SENT — PLAY DISSOLVE ANIMATION */
+    /* EMAIL SENT — PLAY DISSOLVE ANIMATION */
 
-            contactViewer.classList.add("sending");
+    contactViewer.classList.add("sending");
 
+
+    setTimeout(function() {
+
+        contactViewer.classList.remove("open");
+
+        document.body.style.overflow = "";
+
+        contactForm.reset();
+
+
+        setTimeout(function() {
+
+            contactViewer.classList.remove("sending");
+            submitButton.disabled = false;
+
+        }, 50);
+
+
+        /* SHOW SUCCESS POPUP */
+
+        const successPopup =
+            document.querySelector("#messageSuccessPopup");
+
+        if (successPopup) {
+
+            successPopup.classList.add("show");
 
             setTimeout(function() {
 
-                contactViewer.classList.remove("open");
+                successPopup.classList.remove("show");
 
-                document.body.style.overflow = "";
+            }, 3500);
 
-                contactForm.reset();
+        }
 
+    }, 400);
 
-                setTimeout(function() {
-
-                    contactViewer.classList.remove("sending");
-
-                    submitButton.disabled = false;
-
-                }, 50);
-
-            }, 400);
-
-        })
+})
 
         .catch(function(error) {
 
